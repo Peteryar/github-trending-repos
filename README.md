@@ -2,7 +2,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## About Project
 
-Showcase most stared repos for the last 30days, build using Javascript Frontend Tech(React)
+Showcase most stared repos on github for the last 30days, build using Javascript Frontend Tech(React)
 
 ## Available Scripts
 
