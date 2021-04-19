@@ -1,0 +1,35 @@
+.nav-bar {
+    width: 100vw;
+    font-size: calc(10px + 2vmin);
+    color: white;
+    height: 10vh;
+    display: flex;
+    flex-direction: column;
+    border:1px solid #fff;
+}
+.nav-bar h4{
+text-align: center;
+}
+.nav-items-con {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.nav-left{
+    width: 20%;
+    display: flex;
+    justify-content: space-around;
+}
+.input-con {
+   width: 60%;
+}
+.nav-right{
+    width:20%;
+    text-align: center;
+}
+
+input {
+    height: 30px;
+    width: 100%;
+    outline: none;
+}

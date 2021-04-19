@@ -1,23 +1,26 @@
-import logo from './logo.svg';
+import { useEffect, useState } from 'react';
+
 import './App.css';
+import NavBar from './components/NavBar/NavBar';
+import Repo from './components/Repo/Repo';
+
 
 function App() {
+  const [repos, setRepos] = useState([]);
+  const [page, setPage] = useState(0);
+  console.log(page)
+  // console.log(repos)
+  useEffect(() => {
+    fetch(`https://api.github.com/search/repositories?q=created:>2020-03-19&sort=stars&order=desc&page=${page}`)
+      .then(response => response.json())
+      .then(data => setRepos(data.items))
+  }, [page])
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <NavBar incrementPage={() => setPage(page + 1)} />
+      <main>
+        {repos?.map((repo, i) => <Repo data={repo} key={i} />)}
+      </main>
     </div>
   );
 }
