@@ -9,13 +9,13 @@ import Repo from './components/Repo/Repo';
 function App() {
   const [repos, setRepos] = useState([]);
   const [page, setPage] = useState(1);
-  console.log(page)
-  // console.log(repos)
+  
   useEffect(() => {
     fetch(`https://api.github.com/search/repositories?q=created:>2021-03-19&sort=stars&order=desc&page=${page}`)
       .then(response => response.json())
       .then(data => setRepos(data.items))
   }, [page])
+  
   return (
     <div className="App">
       <NavBar paginate={(val) => setPage(page + val)} />
