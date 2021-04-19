@@ -14,13 +14,14 @@ function App() {
     fetch(`https://api.github.com/search/repositories?q=created:>2021-03-19&sort=stars&order=desc&page=${page}`)
       .then(response => response.json())
       .then(data => setRepos(data.items))
+      .catch(error=>console.log(error.messsage))
   }, [page])
-  
+
   return (
     <div className="App">
       <NavBar paginate={(val) => setPage(page + val)} />
       <main>
-        {repos.map((repo, i) => <Repo data={repo} key={i} />)}
+        {repos?.map((repo, i) => <Repo data={repo} key={i} />)}
       </main>
       <Footer paginate={(val) => setPage(page + val)}/>
     </div>
